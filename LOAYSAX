@@ -1,0 +1,187 @@
+/* Media Queries */
+@media not (-moz-bool-pref: 'zen.view.compact') {
+  @media not (-moz-bool-pref: 'zen.tabs.vertical.right-side') {
+    /* Set explicit minimum on overall window sizes */
+
+    /* Window Controls Positioning and Styling */
+    .titlebar-buttonbox-container {
+      position: absolute;
+      width: 100vw;
+      left: 0;
+      display: flex !important;
+      padding: 6px 3px 3px 5px;
+    }
+
+    .titlebar-buttonbox {
+      position: absolute;
+      left: 0px;
+      bottom: 40px;
+      display: flex;
+      margin-right: 20px;
+    }
+
+    /* Window Control Buttons Styling */
+    .titlebar-button {
+      padding: 0 !important;
+      min-height: 13px !important;
+      min-width: 13px !important;
+      align-self: center;
+      margin-left: 6px !important;
+      border-radius: 50px;
+      transition: all 100ms;
+    }
+
+    .titlebar-min {
+      background-color: hsl(130, 50%, 40%) !important;
+    }
+
+    .titlebar-max, .titlebar-restore {
+      background-color: hsl(60, 50%, 50%) !important;
+    }
+
+    .titlebar-close {
+      background-color: hsl(0, 50%, 50%) !important;
+    }
+
+    .titlebar-button > image {
+      visibility: collapse !important;
+    }
+
+    @media (-moz-bool-pref: "theme.zen-minimal-exit-menu.enable-macos-identic") {
+      .titlebar-button:hover {
+        opacity: 0.25 !important;
+      }
+    }
+
+    @media not (-moz-bool-pref: "theme.zen-minimal-exit-menu.enable-macos-identic") {
+      .titlebar-button {
+        background-color: var(--zen-colors-border) !important;
+      }
+
+      .titlebar-min:hover {
+        background-color: hsl(130, 50%, 40%) !important;
+      }
+
+      .titlebar-max:hover, .titlebar-restore:hover {
+        background-color: hsl(60, 50%, 50%) !important;
+      }
+
+      .titlebar-close:hover {
+        background-color: hsl(0, 50%, 50%) !important;
+      }
+
+      .titlebar-button:hover {
+        min-height: 20px !important;
+      }
+    }
+
+    /* Content/Nav Area Visibility */
+    #zen-appcontent-wrapper {
+      overflow: visible !important;
+    }
+
+    /* Sidebar Adjustments */
+    #TabsToolbar {
+      padding-top: 38px;
+      margin-top: 28px;
+    }
+
+    /* Content Area Styling */
+    .browserContainer {
+      box-shadow: 0 0px 5px 2px rgb(0 0 0 / 0.1);
+    }
+
+    /* Navigation Containers */
+    #zen-appcontent-navbar-container {
+      container-type: inline-size;
+      height: var(--zen-element-separation);
+      z-index: 1;
+    }
+
+    #nav-bar {
+      --sidebar-width: calc(100vw - 100cqw);
+      width: var(--sidebar-width);
+      container-name: sidebar;
+      container-type: inline-size;
+      overflow: visible !important;
+      position: fixed !important;
+      right: calc(100cqw);
+    }
+
+    #nav-bar .chromeclass-toolbar-additional:not(#PersonalToolbar, #personal-bookmarks, #back-button, #forward-button, #stop-reload-button, #unified-extensions-button) {
+      display: none;
+    }
+
+    /* Maintain Default Sidebar Width */
+    @media (-moz-bool-pref: "ark-left.maintain-default-sidebar-width") {
+      #navigator-toolbox {
+        min-width: 215px !important;
+        max-width: 215px !important;
+      }
+
+      #zen-sidebar-splitter {
+        pointer-events: none;
+      }
+    }
+
+    /* Hide Navbar Buttons */
+    #zen-expand-sidebar-button, 
+    #zen-profile-button, 
+    .zen-sidebar-action-button {
+      display: none;
+    }
+
+    /* Navigation Buttons */
+    #back-button, 
+    #forward-button, 
+    #stop-reload-button, 
+    #unified-extensions-button {
+      position: fixed;
+      top: var(--zen-element-separation);
+      z-index: 1;
+      pointer-events: auto !important;
+    }
+
+    #back-button {
+      right: 60px;
+    }
+
+    #forward-button {
+      right: 55px;
+      display: none;
+    }
+
+    #stop-reload-button {
+      right: 30px;
+    }
+
+    #unified-extensions-button {
+      right: 0;
+    }
+
+    /* URL Bar Styling */
+    #urlbar-container {
+      position: fixed !important;
+      top: 65px;
+      left: 3px;
+      width: calc(100% - 10px) !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 1;
+    }
+
+    #urlbar {
+      height: 35px;
+      border-radius: 20px !important;
+      border: 0 solid var(--zen-colors-border) !important;
+      box-shadow: 0 0px 11px 1px rgb(0 0 0 / 0.3) !important;
+    }
+
+    #urlbar-input {
+      font-weight: 400;
+      font-size: 0.95em;
+      padding-left: 10px;
+      color: color-mix(in srgb, currentColor 65%, transparent);
+    }
+  }
+}
